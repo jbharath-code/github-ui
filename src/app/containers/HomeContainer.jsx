@@ -1,7 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import fetchUserInformation from '../actions/fetchActions/fetchUserInformation';
+import fetchReposInformation from '../actions/fetchActions/fetchReposInformation';
 
-class DesktopDashboardContainer extends React.Component {
+import GithubDashboard from '../components/githubDashbboard';
+class HomeContainer extends React.Component {
 
     componentDidMount() {
         this.props.fetchUserInformation();
@@ -12,18 +15,23 @@ class DesktopDashboardContainer extends React.Component {
     render() {
         return (
             <div>
-                Hello World
+                <GithubDashboard 
+                    user={this.props.github.userData} 
+                    repos={this.props.github.reposData}
+                />
             </div>
         );
     }
 }
 
-DesktopDashboardContainer.propTypes = {};
+HomeContainer.propTypes = {};
 
-DesktopDashboardContainer.defaultProps = {};
+HomeContainer.defaultProps = {};
 
 const mapStateToProps = state => {
-    return {}
+    return {
+        github: state.get('github')
+    }
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -38,4 +46,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(DesktopDashboardContainer);
+)(HomeContainer);

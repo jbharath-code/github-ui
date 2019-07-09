@@ -1,6 +1,6 @@
 const actions = {
-    FETCH_USER_INFO: `FETCH_USER_INFO`,
-    FETCH_REPO_INFO: `FETCH_REPO_INFO`
+    USER_INFO_FETCHED: `USER_INFO_FETCHED`,
+    REPO_INFO_FETCHED: `REPO_INFO_FETCHED`
 };
 
 export default actions;

@@ -1,11 +1,11 @@
 import React from 'react';
 import { HashRouter, Route } from 'react-router-dom';
 
-import DesktopDashboardContainer from '../containers/DesktopDashboardContainer';
+import HomeContainer from '../containers/HomeContainer';
 
 const appRoutes = (
     <div>
-        <Route path="/" component={DesktopDashboardContainer} />
+        <Route path="/" component={HomeContainer} />
     </div>
 );
 

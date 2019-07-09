@@ -5,7 +5,6 @@ polyfill();
 export default function (url, body, type = 'GET') {
 	const options = {
 		method: type,
-		withCredentials: true,
 		headers: {
 			'Content-Type': 'application/json',
 			'Accept': 'application/json',
