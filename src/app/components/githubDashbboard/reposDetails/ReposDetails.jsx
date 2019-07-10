@@ -1,14 +1,49 @@
 import React from 'react';
 import styles from './styles.sass';
+import moment from 'moment';
+import colors from '../../../constants/colors';
 
 class ReposDetails extends React.Component {
 
 	renderLicense = (license) => {
 		return (
+			<div className="license-box">
+				<img
+					className="license-image"
+					src="https://knolskape-website.s3.amazonaws.com/misc/bharath_janyavula/2019/07/10/24/balance.svg"
+				/>	
+				{license.name}
+			</div>
+		);
+	}
+
+	renderLanguage = (language) => {
+		return (
+			<div className="language-box">
+				<div className="language-color" style={{
+					background: colors[language.toLowerCase()]
+				}}/>
+				<div className="language-text">
+					{language}
+				</div>
+			</div>
+		);
+	}
+
+	renderUpdatedAt = (updated) => {
+		var dateTime = moment(new Date(updated));
+		var nowDate = moment(new Date());
+		var diff  = nowDate.diff(dateTime, 'days');
+		let text = "";
+		if(diff < 60){
+			text = `${diff} days ago`
+		}
+		else{
+			text = `on ${dateTime.format('ll')}`
+		}
+		return (
 			<div>
-				<span>
-					{license.spdx_id}
-				</span>
+				Updated {text}
 			</div>
 		);
 	}
@@ -29,9 +64,13 @@ class ReposDetails extends React.Component {
 							{repo.description}
 						</div>
 						<div className="repo-metadata">
-							<span>
-								{repo.language}
-							</span>
+							{
+								(repo.hasOwnProperty('language') && repo.language) 
+								? 
+								this.renderLanguage(repo.language) 
+								: 
+								null
+							}
 							{
 								(repo.hasOwnProperty('license') && repo.license) 
 								? 
@@ -39,9 +78,13 @@ class ReposDetails extends React.Component {
 								: 
 								null
 							}
-							<span>
-								{repo.updated_at}
-							</span>
+							{
+								(repo.hasOwnProperty('updated_at') && repo.updated_at) 
+								? 
+								this.renderUpdatedAt(repo.updated_at) 
+								: 
+								null
+							}
 						</div>	
 					</div>
 					<div className="star">
