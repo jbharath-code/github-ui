@@ -9,3 +9,11 @@ For the Right part, the tabs - Overview, Repositories, Stars - Will all be dummy
 Header - You can skip it.
 
 Responsiveness - It should move the left section to top in mobile. The right section to the bottom. The widths and other data should be adjusted accordingly.
+
+
+## Approach
+1. On load of application, land the app on / route and load the container. 
+2. On mounting of the container, call apis for the required data
+3. Append the data fetched from apis to store and pass them down as props
+4. Create 2 sections like userDetails and reposDetails and render the required information
+5. Use media queries to make it responsive under 700px
