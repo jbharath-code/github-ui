@@ -17,3 +17,5 @@ Responsiveness - It should move the left section to top in mobile. The right sec
 3. Append the data fetched from apis to store and pass them down as props
 4. Create 2 sections like userDetails and reposDetails and render the required information
 5. Use media queries to make it responsive under 700px
+
+### To run please download the project and cd into that folder and run ```yarn install``` and ```yarn start```
