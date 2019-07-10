@@ -14,12 +14,10 @@ class HomeContainer extends React.Component {
 
     render() {
         return (
-            <div>
-                <GithubDashboard 
-                    user={this.props.github.userData} 
-                    repos={this.props.github.reposData}
-                />
-            </div>
+            <GithubDashboard 
+                user={this.props.github.userData} 
+                repos={this.props.github.reposData}
+            />
         );
     }
 }

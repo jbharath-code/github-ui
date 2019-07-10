@@ -9,11 +9,16 @@ class GithubDashboard extends React.Component {
     render() {
         return (
             <div className="dashboard">
-				<div className="user-details">
-					<UserDetails user={this.props.user} />
-				</div>
-				<div className="repos-details">
-					<ReposDetails repos={this.props.repos} />
+				<div className="header"></div>
+				<div className="content-container">
+					<div className="content">
+						<div className="user-details">
+							<UserDetails user={this.props.user} />
+						</div>
+						<div className="repos-details">
+							<ReposDetails repos={this.props.repos} />
+						</div>
+					</div>
 				</div>
             </div>
         );

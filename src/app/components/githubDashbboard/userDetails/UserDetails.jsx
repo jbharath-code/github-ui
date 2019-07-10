@@ -1,32 +1,64 @@
 import React from 'react';
-
+import styles from './styles.sass';
 
 class UserDetails extends React.Component {
 
 
 	renderUser = (user) =>{
 		return (
-			<div>
-				<img src={user.avatar_url} />
-				<div>
-					{user.name}
+			<div className="user-block">
+				<img className="user-image" src={user.avatar_url} />
+				<div className="user-name-handle">
+					<div className="user-name">
+						{user.name}
+					</div>
+					<div className="user-handle">
+						{user.login}
+					</div>
+				</div>
+				<div className="user-follow">
+					Follow
 				</div>
 				<div>
-					{user.login}
-				</div>
-				<div>
-					{user.bio}
-				</div>
-				<div>
-					<div>
-						{user.company}
+					<div className="user-bio">
+						{user.bio}
 					</div>
-					<div>
-						{user.location}
+					<div className="user-company">
+						<span>
+							<img className="image-icon"
+								src="https://knolskape-website.s3.amazonaws.com/misc/bharath_janyavula/2019/07/10/29/friends.svg"
+							/>
+						</span>
+						<span>
+							{user.company}
+						</span>
 					</div>
-					<div>
-						{user.email}
+					<div className="user-location">
+						<span>
+							<img className="image-icon"
+								src="https://knolskape-website.s3.amazonaws.com/misc/bharath_janyavula/2019/07/10/49/placeholder.svg"
+							/>
+						</span>
+						<span>
+							{user.location}
+						</span>
 					</div>
+					{
+						user.email 
+						? 
+							<div className="user-email">
+								<span>
+									<img className="image-icon"
+										src="https://knolskape-website.s3.amazonaws.com/misc/bharath_janyavula/2019/07/10/71/mail.svg"
+									/>
+								</span>
+								<span>
+									{user.email}
+								</span>
+							</div>
+						:
+						null
+					}
 				</div>
 			</div>
 		);
